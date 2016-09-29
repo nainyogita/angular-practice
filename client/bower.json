@@ -1,0 +1,21 @@
+{
+  "name": "practice",
+  "homepage": "https://github.com/stackroute/vagrant-xenial64-node6-mongo3.2",
+  "description": "angular practice",
+  "main": "index.html",
+  "keywords": [
+    "practice"
+  ],
+  "authors": [
+    "yogita"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
