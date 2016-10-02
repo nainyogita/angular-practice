@@ -1,6 +1,6 @@
 (function() {
 
-    var app = angular.module('appRoutes', []);
+    var app = angular.module('appRoutes', ['ngRoute']);
 
     app.config(function($routeProvider) {
 
@@ -12,9 +12,6 @@
             })
             .when('/', {
                 templateUrl: '../index.html'
-            })
-            .when('/mask', {
-                templateUrl: '../templates/mask.html'
             })
             .otherwise({
                 redirectTo: '/notes'

@@ -3,7 +3,7 @@
     var a = 5; //variale declared outside module accessed inside controller
 
     //first param is module name, second param is dependecies on other modules
-    var app = angular.module('app', ['todoController', 'ngRoute', 'maskController', 'appRoutes']);
+    var app = angular.module('app', ['todoController', 'appRoutes']);
 
     //Custome Directives
     //can also use ng-include , but best to use expanding directive
