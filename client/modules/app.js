@@ -3,7 +3,7 @@
     var a = 5; //variale declared outside module accessed inside controller
 
     //first param is module name, second param is dependecies on other modules
-    var app = angular.module('app', ['todoController']);
+    var app = angular.module('app', ['todoController', 'ngRoute', 'maskController', 'appRoutes']);
 
     //Custome Directives
     //can also use ng-include , but best to use expanding directive
@@ -13,7 +13,7 @@
     app.directive('productInfo', function() {
         return {
             restrict: 'E', //Type of Directive, E for element
-            templateUrl: './directives/product-info.html'
+            templateUrl: './templates/product-info.html'
         };
     });
 

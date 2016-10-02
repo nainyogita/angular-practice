@@ -10,8 +10,11 @@
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/angular-route/angular-route.min.js"></script>
   <script src="./modules/app.js"></script>
+  <script src="./modules/routes.js"></script>
   <script src="./controllers/todo.js"></script>
+  <script src="./controllers/mask.js"></script>
 
 
   <script src="bower_components/angular-material/angular-material.min.js"></script>
@@ -41,9 +44,19 @@
     </form>
 
     <button class="btn" ng-click="vm.clearCompleted()"><span class="glyphicon glyphicon-trash"></span></button>
+</div>
 
-<!-- - in HTML directive translates to camelCase is js -->
+<br />
+<br />
+<hr />
+
+<!-- Routing , used for SPA-->
+<div ng-view>
+
+</div>
+    <!-- Custom template expanding directive -->
+    <!-- - in HTML directive translates to camelCase is js -->
     <product-info></product>
-  </div>
+
 </body>
 </html>
