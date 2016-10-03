@@ -1,6 +1,6 @@
 (function() {
 
-    var app = angular.module('appRoutes', ['ngRoute']);
+    var app = angular.module('app');
 
     app.config(function($routeProvider) {
 
@@ -12,6 +12,14 @@
             })
             .when('/', {
                 templateUrl: '../index.html'
+            })
+            .when('/material', {
+                templateUrl: '../templates/material.html'
+            })
+            .when('/login', {
+                templateUrl: '../templates/login.html',
+                controller: 'LoginCtrl',
+                controllerAs: 'vm'
             })
             .otherwise({
                 redirectTo: '/notes'
