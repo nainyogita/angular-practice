@@ -1,12 +1,12 @@
 angular.module('app').controller('LoginCtrl', function(loginService) {
     var vm = this;
-    name = '';
-    password = '';
+    // vm.user = {};
 
     vm.login = function() {
-        name = vm.name;
-        password = vm.password;
-        alert(name + password);
+        // vm.user.name = vm.name;
+        // vm.user.password = vm.password;
+        alert(vm.user.name + vm.user.password);
+        loginService.loginFunction(vm.user);
     }
 
 

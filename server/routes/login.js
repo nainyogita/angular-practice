@@ -15,11 +15,11 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-    //console.log("inside login post");
-    //console.log("login post---" + req.body.username);
+    console.log("inside login post");
+    console.log("login post---" + req.body.name);
 
     userModel.findOne({
-        username: req.body.username
+        username: req.body.name
     }, function(err, user) {
         if (err)
             console.log('error finding');
@@ -36,13 +36,13 @@ router.post('/', function(req, res, next) {
                     // in seconds
             });
 
-            // res.json({
-            //     success: true,
-            //     token: 'JWT ' + token
-            // });
+            res.json({
+                success: true,
+                token: 'JWT ' + token
+            });
             //
             // console.log(token);
-            res.redirect('chat/?username=' + req.body.username);
+            //  res.redirect('chat/?username=' + req.body.username);
         } else {
             console.log("user donot exist");
             res.redirect('register');

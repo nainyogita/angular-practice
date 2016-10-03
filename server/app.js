@@ -61,8 +61,7 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 
 //For running client/index.html
-//app.use(express.static(path.join(__dirname, '../client')));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../client')));
 //app.use(express.static(path.join(__dirname, 'uploads')));
 
 app.use('/', routes); //routes,users are defined above
@@ -86,6 +85,8 @@ app.use(function(req, res, next) {
     err.status = 404;
     next(err); //If next is not called, request is left hanging because the control doesnot reach the next middleware function
 });
+
+
 
 //CHAT EXAMPLE
 
