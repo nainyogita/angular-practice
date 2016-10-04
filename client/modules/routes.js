@@ -27,7 +27,9 @@
     });
 
     app.run(function($http, $localStorage) {
-        $http.defaults.headers.common.Authorization = 'Bearer' + $localStorage.currentUser.token;
+        if ($localStorage.currentUser) {
+            $http.defaults.headers.common.Authorization = $localStorage.currentUser.token;
+        }
     });
 
 })();

@@ -5,14 +5,6 @@ angular.module('app').service('AuthenticationService', ['$http', '$localStorage'
 
         return $http.post('/login', username).
         success(function(response) {
-                // console.log(response);
-                // if (response.success == true) {
-                //     console.log('hii');
-                // } else if (response.success == false) {
-                //
-                // } else {
-                //     console.log('hehe');
-                // }
                 console.log('Success');
                 console.log(response);
             })
@@ -27,8 +19,9 @@ angular.module('app').service('AuthenticationService', ['$http', '$localStorage'
 
         $localStorage.currentUser = currentUser;
         console.log($localStorage);
-        $http.defaults.headers.common.Authorization = 'Bearer' + $localStorage.currentUser.token;
+        $http.defaults.headers.common.Authorization = $localStorage.currentUser.token;
     }
+
 
     this.clearCredentials = function() {
         currentUser = {};
@@ -37,3 +30,13 @@ angular.module('app').service('AuthenticationService', ['$http', '$localStorage'
     }
 
 }]);
+
+// .service('LoginInterceptor', ['$localStorage', function(AuthenticationService, $localStorage) {
+//     var service = this;
+//     console.log('inside LoginInterceptor');
+//     service.request = function(config) {
+//         var currentUser = $localStorage.currentUser;
+//         config.headers.authorization = currentUser.token;
+//         return config;
+//     }
+// }]);

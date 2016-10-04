@@ -62,7 +62,7 @@ app.use(cookieParser());
 
 //For running client/index.html
 app.use(express.static(path.join(__dirname, '../client')));
-//app.use(express.static(path.join(__dirname, 'uploads')));
+//app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes); //routes,users are defined above
 app.use('/m', routes); //2 mappings to one route

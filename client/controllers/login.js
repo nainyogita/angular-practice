@@ -1,4 +1,4 @@
-angular.module('app').controller('LoginCtrl', ['$location', 'AuthenticationService', function($location, AuthenticationService) {
+angular.module('app').controller('LoginCtrl', ['$location', 'AuthenticationService', '$http', function($location, AuthenticationService, $http) {
     var vm = this;
     vm.c = {};
 
@@ -14,8 +14,11 @@ angular.module('app').controller('LoginCtrl', ['$location', 'AuthenticationServi
                     //Set local Storage and add token to header
                     AuthenticationService.setCredentials(vm.user.name, response.data.token);
 
+                    $http.get('/api/dashboard').success(function(response) {
+                        console.log(response);
+                    });
                     //AuthenticationService.clearCredentials();
-                    $location.path('/notes');
+                    //$location.path('/notes');
                 }
 
                 if (response.data.success == false) {
@@ -24,4 +27,7 @@ angular.module('app').controller('LoginCtrl', ['$location', 'AuthenticationServi
                 }
             });
     }
+
+
+
 }]);
