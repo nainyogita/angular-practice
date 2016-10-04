@@ -1,14 +1,27 @@
-angular.module('app').controller('LoginCtrl', function(loginService) {
+angular.module('app').controller('LoginCtrl', ['$location', 'AuthenticationService', function($location, AuthenticationService) {
     var vm = this;
-    // vm.user = {};
+    vm.c = {};
 
     vm.login = function() {
-        // vm.user.name = vm.name;
-        // vm.user.password = vm.password;
-        alert(vm.user.name + vm.user.password);
-        loginService.loginFunction(vm.user);
+
+        AuthenticationService.loginFunction(vm.user)
+            .then(function(response) {
+                //If user authentication is successful
+                if (response.data.success == true) {
+                    console.log("LoginFunctionrESPONSE");
+                    console.log(response);
+
+                    //Set local Storage and add token to header
+                    AuthenticationService.setCredentials(vm.user.name, response.data.token);
+
+                    //AuthenticationService.clearCredentials();
+                    $location.path('/notes');
+                }
+
+                if (response.data.success == false) {
+                    console.log(response);
+                    $location.path('/login');
+                }
+            });
     }
-
-
-
-})
+}]);

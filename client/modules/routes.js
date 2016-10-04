@@ -2,7 +2,7 @@
 
     var app = angular.module('app');
 
-    app.config(function($routeProvider) {
+    app.config(function($routeProvider, $locationProvider) {
 
         $routeProvider.when('/notes', {
                 templateUrl: '../templates/notes.html '
@@ -24,6 +24,10 @@
             .otherwise({
                 redirectTo: '/notes'
             });
+    });
+
+    app.run(function($http, $localStorage) {
+        $http.defaults.headers.common.Authorization = 'Bearer' + $localStorage.currentUser.token;
     });
 
 })();

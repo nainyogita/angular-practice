@@ -1,22 +1,39 @@
-angular.module('app').service('loginService', function($http, store) {
-    var service = this,
-        currentUser = null;
+angular.module('app').service('AuthenticationService', ['$http', '$localStorage', function($http, $localStorage) {
+    var currentUser = {};
 
-    this.loginFunction = function(user) {
-        $http.post('/login', user).success(function(data) {
-                // alert(data.success);
-                // alert(data.token);
-                if (data.success == true) {
-                    currentUser.user = user;
-                    currentUser.token = data.token;
-                    store.set('currentUser', currentUser);
-                    return currentUser;
-                } else if (data.success == false) {
-                    return null;
-                }
+    this.loginFunction = function(username) {
+
+        return $http.post('/login', username).
+        success(function(response) {
+                // console.log(response);
+                // if (response.success == true) {
+                //     console.log('hii');
+                // } else if (response.success == false) {
+                //
+                // } else {
+                //     console.log('hehe');
+                // }
+                console.log('Success');
+                console.log(response);
             })
-            .error(function(data) {
-                alert('error');
+            .error(function(response) {
+                console.log('error');
             });
     }
-});
+
+    this.setCredentials = function(username, token) {
+        currentUser.username = username;
+        currentUser.token = token;
+
+        $localStorage.currentUser = currentUser;
+        console.log($localStorage);
+        $http.defaults.headers.common.Authorization = 'Bearer' + $localStorage.currentUser.token;
+    }
+
+    this.clearCredentials = function() {
+        currentUser = {};
+        delete $localStorage.currentUser;
+        console.log($localStorage);
+    }
+
+}]);

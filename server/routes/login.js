@@ -45,8 +45,12 @@ router.post('/', function(req, res, next) {
             //  res.redirect('chat/?username=' + req.body.username);
         } else {
             console.log("user donot exist");
-            res.redirect('register');
-            //  res.send({success:false,message:'user donot exist'});
+            //  res.redirect('register');
+            res.json({
+                success: false,
+                token: 'null'
+                    //message: 'user donot exist'
+            });
         }
     });
 });

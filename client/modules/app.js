@@ -3,7 +3,7 @@
     var a = 5; //variale declared outside module accessed inside controller
 
     //first param is module name, second param is dependecies on other modules
-    var app = angular.module('app', ['ngMaterial', 'ngMessages', 'ngRoute']);
+    var app = angular.module('app', ['ngMaterial', 'ngMessages', 'ngRoute', 'ngStorage']);
 
     //Custom Directives
     //can also use ng-include , but best to use expanding directive
@@ -34,7 +34,6 @@
 
 
 })();
-
 //app.js is top level module
 //dependencies on controller modules and directive modules
 //split modules on basis of functionalities
