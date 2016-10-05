@@ -21,6 +21,11 @@
                 controller: 'LoginCtrl',
                 controllerAs: 'vm'
             })
+            .when('/chat', {
+                templateUrl: '../templates/chat.html',
+                controller: 'SocketCtrl'
+                    // controllerAs: 'vm'
+            })
             .otherwise({
                 redirectTo: '/notes'
             });

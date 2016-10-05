@@ -3,7 +3,7 @@
     var a = 5; //variale declared outside module accessed inside controller
 
     //first param is module name, second param is dependecies on other modules
-    var app = angular.module('app', ['ngMaterial', 'ngMessages', 'ngRoute', 'ngStorage']);
+    var app = angular.module('app', ['ngMaterial', 'ngMessages', 'ngRoute', 'ngStorage', 'btford.socket-io']);
 
     //Custom Directives
     //can also use ng-include , but best to use expanding directive
